@@ -1,6 +1,8 @@
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+
+---
+const pageTitle = "Home Page";
+---
+
 
 <html lang="en">
 	<head>
@@ -8,9 +10,13 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Site</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<h1>Astro Site - Index</h1>
+	<a href="/">Home</a>
+	<a href="/about/">About</a>
+	<a href="/blog/">Blog</a>
+	
+	<h1>{pageTitle}</h1>
 	</body>
 </html>
