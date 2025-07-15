@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from '../components/BlogPost.astro';
 const allPosts = Object.values(import.meta.glob('./posts/*.md', {eager: true}));
 const pageTitle = "Astro Learning Blog";
 const titleColor = "orange";
@@ -7,6 +8,14 @@ const titleColor = "orange";
 <BaseLayout pageTitle={pageTitle} {titleColor} >
 	<p>Bloggie mac blogface</p>
 		<ul>
-  			{allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+  			{allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
 		</ul>
 </BaseLayout>
+
+
+
+
+
+<ul>
+
+</ul>
