@@ -9,5 +9,11 @@ const { frontmatter } = Astro.props;
 
 <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
 
+<p>Blog subjects: 
+{frontmatter.tags.map((item : any) => (
+<span> {item} </span>))}
+</p>
+
+
 <slot />
 </BaseLayout>
