@@ -1,54 +1,34 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-
-import "../styles/global.css";
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "About Me";
-
+const titleColor = "turquoise";
 const identity = {
   firstName: "Robert",
   country: "Scotland",
   occupation: "Physics guy",
   hobbies: ["guitar", "art and code", "swimming"],
 };
-
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
 const happy = true;
 const finished = false;
 const goal = 3;
-
 const skillColor = "red";
 const fontWeight = "800";
 const textCase = "upperCase";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
+<BaseLayout {pageTitle} {titleColor} >
+
+      <style define:vars={{skillColor, fontWeight, textCase }}>
       h1 {
-        color: purple;
-        font-size: 4rem;
-      }
+        font-size: 8rem;
+      } 
       .skill {
-        color: green;
         color: var(--skillColor);
         font-weight: var(--fontWeight);
         text-transform: var(--textCase);
       }
     </style>
-  </head>
-  <body>
-    <Header />
-
-    <h1>{pageTitle}</h1>
 
     {happy && <p>I am happy to be learning astro</p>}
 
@@ -69,7 +49,7 @@ const textCase = "upperCase";
       <li>I live in {identity.country}</li>
       <li>My occupation is {identity.occupation}</li>
       <li>
-        My hobies are {identity.hobbies[0]}, {identity.hobbies[1]}, and {
+        My hobbies are {identity.hobbies[0]}, {identity.hobbies[1]}, and {
           identity.hobbies[2]
         }
       </li>
@@ -80,9 +60,5 @@ const textCase = "upperCase";
       {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
-    <Footer />
-    <script>
-			import "../scripts/menu.js";
-		</script>
-  </body>
-</html>
+
+</BaseLayout>
